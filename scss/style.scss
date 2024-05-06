@@ -302,20 +302,22 @@ section .container {
    display: block;
 }
 h1 {
-   font-family: var(--font4);
+   font-family: var(--second-family);
    font-weight: 700;
-   font-size: 7.5rem;
+   font-size: 10.94rem;
    line-height: 100%;
    text-transform: uppercase;
-   color: var(--light);
+   color: var(--main);
 }
 h1 + p {
-   margin-top: 1.25rem;
-   font-family: var(--font3);
+   font-family: var(--second-family);
    font-weight: 700;
-   font-size: 2rem;
+   font-size: 3.75rem;
    color: var(--light);
-   line-height: 130%;
+}
+#content {
+   display: flex;
+   align-items: start;
 }
 .main ul {
    margin-top: 3rem;
