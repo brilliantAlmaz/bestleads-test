@@ -11,5 +11,31 @@ function init() {
    })
 }
 
+if (document.addEventListener) {
+   if ('onwheel' in document) {
+      // IE9+, FF17+, Ch31+
+      document.addEventListener("wheel", onWheel);
+   } else if ('onmousewheel' in document) {
+      // устаревший вариант события
+      document.addEventListener("mousewheel", onWheel);
+   } else {
+      // Firefox < 17
+      document.addEventListener("MozMousePixelScroll", onWheel);
+   }
+} else { // IE8-
+   document.attachEvent("onmousewheel", onWheel);
+}
+
+function onWheel(e) {
+   e = e || window.event;
+
+   // wheelDelta не даёт возможность узнать количество пикселей
+   var delta = e.deltaY || e.detail || e.wheelDelta;
+
+   var info = document.getElementById('delta');
+   console.log(delta);
+
+   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+}
 init();
 window.addEventListener('resize', init)

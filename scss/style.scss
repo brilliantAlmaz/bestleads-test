@@ -2,9 +2,9 @@
 
 html,
 body {
+   overflow: hidden;
    scroll-behavior: smooth;
    &.lock {
-      overflow-y: hidden;
    }
 }
 body {
