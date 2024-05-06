@@ -30,10 +30,9 @@ section {
    --light-dark: #515151;
    --main: #f0b90b;
    --add: #f0b90b;
-   --gradient-main: #f0b90b;
-   --linear-add: #f0b90b;
-   --font-family: "Myriad Pro", sans-serif;
-   --second-family: "Montserrat", sans-serif;
+
+   --font-family: "Montserrat", sans-serif;
+   --second-family: "Myriad Pro", sans-serif;
    --third-family: "Lato", sans-serif;
    --font3: "Roboto", sans-serif;
    --font4: "Onest", sans-serif;
@@ -304,7 +303,7 @@ section .container {
 h1 {
    font-family: var(--second-family);
    font-weight: 700;
-   font-size: 10.94rem;
+   font-size: 15rem;
    line-height: 100%;
    text-transform: uppercase;
    color: var(--main);
@@ -314,6 +313,7 @@ h1 + p {
    font-weight: 700;
    font-size: 3.75rem;
    color: var(--light);
+   margin-top: 1.5rem;
 }
 #content {
    display: flex;
@@ -344,6 +344,9 @@ h1 + p {
       // margin-right: 1rem;
    }
 }
+.main__btn {
+   margin-top: 4rem;
+}
 section {
    padding: 4rem 0 8rem;
 }
@@ -353,7 +356,7 @@ section {
 .container {
 }
 .title {
-   font-family: var(--font-family);
+   font-family: var(--second-family);
    font-weight: 700;
    font-size: 3.75rem;
    text-align: center;
@@ -361,99 +364,61 @@ section {
    span {
       text-align: center;
       display: block;
-      font-family: var(--second-family);
+      font-family: var(--font-family);
       font-weight: 300;
       font-size: 1.12rem;
    }
 }
-.about__title {
-}
-.about__desc {
-}
-.desc {
-   max-width: 700px;
-   margin: auto;
-   margin-top: 4rem;
 
-   font-family: var(--third-family);
-   font-weight: 400;
-   font-size: 2rem;
-   text-align: center;
-   color: var(--light);
-   line-height: 130%;
-   font-weight: 300;
-}
-.about ul {
-   display: flex;
-   align-items: center;
-   gap: 1.25rem;
-   width: max-content;
-   margin: auto;
-   margin-top: 1.5rem;
-}
-.about__link {
-}
 .social-link {
 }
-.about__body {
-   margin-top: 2.5rem;
-   display: grid;
-   grid-template-areas:
-      "a a b b b b b b"
-      "c c c c c c d d";
-   gap: 1.5rem;
-}
-.about__item {
-   background: var(--light);
-   padding: 2rem;
-   h3 {
-      font-family: var(--font-family);
+.services {
+   background: var(--dark);
+   .btn {
+      margin-top: 4rem;
+   }
+   h2 + p {
+      margin-top: 2rem;
+      font-family: var(--second-family);
       font-weight: 700;
       font-size: 2rem;
       letter-spacing: 0.03em;
-      color: var(--dark);
+      color: var(--light);
+      max-width: 500px;
    }
-   p {
-      margin-top: 1rem;
-      font-family: var(--second-family);
-      font-weight: 300;
-      font-size: 1.12rem;
-      color: var(--dark);
+   ul {
+      margin-top: 3rem;
+      max-width: 600px;
    }
-   border-radius: 1.25rem;
-}
-.about__item:nth-child(1) {
-   grid-area: a;
-}
-
-.about__item:nth-child(2) {
-   grid-area: b;
-}
-
-.about__item:nth-child(3) {
-   grid-area: c;
-}
-
-.about__item:nth-child(4) {
-   grid-area: d;
-}
-.btn {
-}
-.about__btn {
-   margin: auto;
-   margin-top: 4rem;
-}
-
-.services {
-   background: var(--dark);
+   ul > li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-family: var(--third-family);
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--light);
+      &:before {
+         content: "";
+         width: 0.5rem;
+         height: 0.5rem;
+         background: #fff;
+         border-radius: 50%;
+         display: block;
+         position: absolute;
+         top: 0.25rem;
+         left: 0;
+      }
+   }
 }
 .container {
 }
 .title {
 }
 .services__title {
+   text-align: left;
    span {
       margin-top: 1rem;
+      text-align: left;
    }
 }
 .services__body {
@@ -529,9 +494,9 @@ section {
 .services-image {
    position: absolute;
    display: block;
-   bottom: 0;
-   right: -2rem;
-   height: 420px;
+   bottom: -20%;
+   right: -15%;
+   height: min(50vw, 70vh);
    object-fit: contain;
 }
 
@@ -712,7 +677,7 @@ section {
 }
 
 .offer {
-   background: var(--main);
+   background: var(--dark);
 }
 .offer .container {
    position: relative;
@@ -728,6 +693,7 @@ form {
    background: var(--light);
    width: 500px;
    border-radius: 2rem;
+   margin: auto;
 }
 .offer__title {
    color: var(--dark);
@@ -741,14 +707,14 @@ form {
       display: inline-block;
    }
    label {
-      font-family: var(--second-family);
+      font-family: var(--font-family);
       font-weight: 300;
       font-size: 1.12rem;
       color: #000;
    }
 }
 .field-name {
-   font-family: var(--second-family);
+   font-family: var(--font-family);
    font-weight: 300;
    font-size: 1.12rem;
    color: #000;
@@ -758,7 +724,7 @@ form {
    width: 100%;
    margin-top: 0.5rem;
    border-radius: 0.62rem;
-   font-family: var(--second-family);
+   font-family: var(--font-family);
    font-weight: 300;
    font-size: 1.12rem;
    color: var(--light);
@@ -867,4 +833,65 @@ header {
          opacity: 1;
       }
    }
+}
+.contacts {
+   background: var(--dark);
+   ul {
+      margin-top: 1rem;
+      li {
+         margin-top: 0.5rem;
+         display: flex;
+         align-items: center;
+         gap: 4px;
+
+         &:first-child {
+            margin-top: 0;
+         }
+         a {
+            color: var(--light);
+            font-family: var(--font-family);
+            font-weight: 300;
+            font-size: 1.12rem;
+            text-align: right;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+         }
+      }
+   }
+}
+.container {
+}
+.contacts__title {
+   text-align: left;
+   span {
+      text-align: left;
+   }
+}
+.title {
+}
+.contacts__body {
+   margin-top: 3rem;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+}
+.contacts__item {
+}
+.contacts__name {
+   font-family: var(--second-family);
+   font-weight: 700;
+   font-size: 2rem;
+   letter-spacing: 0.03em;
+   text-align: left;
+   color: var(--light);
+}
+.contacts__position {
+   margin-top: 0.5rem;
+   font-family: var(--third-family);
+   font-weight: 400;
+   font-size: 1.5rem;
+   text-align: left;
+   color: var(--light);
+   opacity: 0.7;
 }

@@ -1,0 +1,55 @@
+@media (max-width: 1300px) {
+   .container {
+      padding: 0 3rem;
+   }
+}
+@media (max-width: 950px) {
+   h1 {
+   }
+}
+@media (max-height: 900px) {
+   .services ul > li {
+      font-size: 1rem;
+      line-height: 120%;
+   }
+   .services {
+      h2 + p {
+         font-size: 1.5rem;
+         margin-top: 1.5rem;
+      }
+      ul {
+         margin-top: 1.75rem;
+      }
+      .btn {
+         margin-top: 2.5rem;
+      }
+   }
+}
+@media (max-width: 700px) {
+   h1 + p {
+      font-size: 2.5rem;
+   }
+}
+
+@media (max-width: 550px) {
+   h1 {
+      text-align: center;
+   }
+   h1 + p {
+      font-size: 2rem;
+      text-align: center;
+   }
+   .btn {
+      max-width: 100%;
+      width: 100%;
+      font-size: 1.5rem;
+      padding-left: 0;
+      padding-right: 0;
+   }
+}
+
+@media (max-width: 410px) {
+   h1 + p {
+      font-size: 1.5rem;
+   }
+}
