@@ -4,7 +4,8 @@ const header = document.querySelector('header');
 document.querySelectorAll('.container').forEach(i => {
    console.log(i.clientHeight);
 })
-
+let d;
+let r;
 function init() {
    sections.forEach(i => {
       let container = i.querySelector('.container').clientHeight;
@@ -20,7 +21,8 @@ function init() {
       i.style.minWidth = window.innerWidth + 'px';
    })
    slider.style.transform = `translate(-${count * window.innerWidth}px)`;
-
+   d = Math.sqrt(window.innerWidth * window.innerWidth + window.innerHeight * window.innerHeight);
+   document.querySelector('head').insertAdjacentHTML('beforeend', `<style>:root{--radius:${d}px}</style>`);
 }
 
 
@@ -67,6 +69,23 @@ let count = 0;
 
 window.wow = new WOW({});
 wow.init();
+
+let timerAnimate;
+async function animateStart() {
+   clearTimeout(timerAnimate)
+   document.querySelector('.animation-block').style.zIndex = 10;
+
+   document.querySelector('.el').style.transition = "all 1s ease 0s"
+   document.querySelector('.el-2').style.transition = "all 1s ease 0.3s"
+   document.querySelector('.el').classList.add('active')
+   document.querySelector('.el-2').classList.add('active');
+   // timerAnimate = setTimeout(() => {
+   //    document.querySelector('.el').style.transition = "none"
+   //    document.querySelector('.el-2').style.transition = "none"
+   //    document.querySelector('.el').classList.remove('active')
+   //    document.querySelector('.el-2').classList.remove('active');
+   // }, 1000);
+}
 async function forceWowReanimation(element) {
    element.classList.remove('animated');
    element.style.removeProperty('animation-iteration-count');
@@ -76,10 +95,11 @@ async function forceWowReanimation(element) {
    wow.applyStyle(element, true);
    setTimeout(function () {
       wow.show(element);
-   }, 10);
+   }, 1500);
 }
 let t;
 let allowChange = false;
+let timerWOW;
 async function changeSection(direct) {
    if (allowChange) {
       if (direct > 0) {
@@ -87,7 +107,17 @@ async function changeSection(direct) {
             count++;
             slider.querySelectorAll('.ii')[count].querySelectorAll('.wow').forEach(i => {
                console.log(i);
+               animateStart();
+               timerAnimate = setTimeout(() => {
+                  document.querySelector('.el').style.transition = "none"
+                  document.querySelector('.el-2').style.transition = "none"
+                  document.querySelector('.el').classList.remove('active')
+                  document.querySelector('.el-2').classList.remove('active');
+                  slider.style.transform = `translate(-${count * window.innerWidth}px)`;
+                  document.querySelector('.animation-block').style.zIndex = -1;
+               }, 1500);
                forceWowReanimation(i)
+
             })
          }
       }
@@ -96,12 +126,22 @@ async function changeSection(direct) {
             count--;
             slider.querySelectorAll('.ii')[count].querySelectorAll('.wow').forEach(i => {
                console.log(i);
+               animateStart();
+               timerAnimate = setTimeout(() => {
+                  document.querySelector('.el').style.transition = "none"
+                  document.querySelector('.el-2').style.transition = "none"
+                  document.querySelector('.el').classList.remove('active')
+                  document.querySelector('.el-2').classList.remove('active');
+                  slider.style.transform = `translate(-${count * window.innerWidth}px)`;
+                  document.querySelector('.animation-block').style.zIndex = -1;
+               }, 1500);
                forceWowReanimation(i)
+
             })
          }
 
       }
-      slider.style.transform = `translate(-${count * window.innerWidth}px)`;
+
       allowChange = false;
    } else {
       clearTimeout(t)
@@ -145,3 +185,5 @@ window.addEventListener('resize', async () => {
       init()
    }, 200);
 });
+
+

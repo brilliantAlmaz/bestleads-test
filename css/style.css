@@ -931,4 +931,48 @@ header .scrolled:hover {
   text-align: left;
   color: var(--light);
   opacity: 0.7;
+}
+
+.animation-block {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.el,
+.el-2 {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  right: -25%;
+  bottom: 0;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  aspect-ratio: 1/1;
+}
+
+.el {
+  transition: all 1s ease 0s;
+  z-index: 5;
+  background: var(--main);
+  width: 0;
+}
+.el.active {
+  width: var(--radius);
+}
+
+.el-2 {
+  transition: all 1s ease 0.4s;
+  z-index: 10;
+  background: var(--dark);
+  width: 0;
+}
+.el-2.active {
+  width: var(--radius);
 }/*# sourceMappingURL=style.css.map */
