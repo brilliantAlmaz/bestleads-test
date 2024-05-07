@@ -36,14 +36,16 @@
                <a class="header__logo logo">BestLeads</a>
                <nav class="header__menu">
                   <ul>
-                     <li><a href="#about" class="header__link">О нас</a></li>
-                     <li><a href="#services" class="header__link">Услуги</a></li>
-                     <li><a href="#reviews" class="header__link">Отзывы</a></li>
-                     <li><a href="#portfolio" class="header__link">Портфолио</a></li>
+                     <li><a href="#about" class="header__link">Для Рекламодателей</a></li>
+                     <li><a href="#services" class="header__link">Для Исполнителей</a></li>
+                     <li><a href="#reviews" class="header__link">FAQ</a></li>
                   </ul>
 
                   <a href="#offer" class="header__btn btn">оставить заявку</a>
                </nav>
+               <div class="burger">
+                  <span></span>
+               </div>
             </div>
          </div>
       </header>
@@ -52,9 +54,6 @@
          <div class="el-2"></div>
       </div>
       <main class="content" id="content">
-
-
-
          <div class="ii">
             <section class="main" id="main">
                <div class="container">
@@ -65,6 +64,7 @@
                </div>
             </section>
          </div>
+
          <div class="ii">
             <section class="services" id="services">
                <div class="container">
@@ -86,8 +86,9 @@
                         corporis quidem omnis molestiae voluptate earum.</li>
                   </ul>
                   <a href="#offer" class="btn wow fadeInUp">стать партнером</a>
-                  <img src="./img/dev.png" alt="" class="services-image wow fadeInRight">
                </div>
+               <img src="./img/dev.png" alt="" class="services-image wow fadeInRight">
+
             </section>
          </div>
 
@@ -108,13 +109,8 @@
                         <div class="field-name">Ваша почта</div>
                         <input type="text" name="email" class="offer__input">
                      </div>
-                     <div class="offer__field">
-                        <div class="field-name">В какую среду Вы хотите?</div>
-                        <input type="radio" value="client" name="who" id="ad" class="offer__input">
-                        <label for="ad">Я рекламодатель</label>
-                        <input type="radio" value="dev" name="who" id="dev" class="offer__input">
-                        <label for="dev">Я вебмастер</label>
-                     </div>
+                     <p class="policy">Нажимая на кнопку, Вы даете согласию на <a href="">обработку Персоналных
+                           данных</a></p>
                      <button class="btn offer__btn" type="submit">Отправить</button>
                   </form>
                </div>
@@ -354,8 +350,12 @@
             </section>
          </div>
 
+
+
+
+
       </main>
-      <footer class="footer" id="footer">
+      <!-- <footer class="footer" id="footer">
          <div class="container">
             <div class="footer__body">
                <div class="footer-first">
@@ -413,10 +413,9 @@
                </div>
                <nav class="footer__menu">
                   <ul>
-                     <li><a href="#about" class="header__link">О нас</a></li>
-                     <li><a href="#services" class="header__link">Услуги</a></li>
-                     <li><a href="#reviews" class="header__link">Отзывы</a></li>
-                     <li><a href="#portfolio" class="header__link">Портфолио</a></li>
+                     <li><a href="#about" class="header__link">Для Рекламодателей</a></li>
+                     <li><a href="#services" class="header__link">Для Исполнителей</a></li>
+                     <li><a href="#reviews" class="header__link">FAQ</a></li>
                   </ul>
                   <a href="" class="footer__link">+ 7 (999) 999-99-99</a>
                   <a href="" class="footer__link">email@email.com</a>
@@ -434,12 +433,13 @@
                </ul>
             </div>
          </div>
-      </div>
+      </div> -->
    </div>
    <script>
       new WOW().init();
    </script>
    <script src="./js/script.js"> </script>
+   <script src="./js/burger.js"> </script>
 
 </body>
 

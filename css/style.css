@@ -269,7 +269,7 @@ footer {
 }
 
 .logo {
-  font-family: var(--font-family);
+  font-family: var(--second-family);
   font-weight: 700;
   font-size: 2rem;
   text-transform: uppercase;
@@ -540,11 +540,14 @@ section {
 }
 
 .services-image {
+  z-index: -1;
+  transition: all 0.3s ease;
+  opacity: 1;
   position: absolute;
   display: block;
-  bottom: -20%;
+  bottom: 0%;
   right: -15%;
-  height: min(50vw, 70vh);
+  height: min(50vw, 80vh);
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -946,10 +949,10 @@ header .scrolled:hover {
 .el,
 .el-2 {
   position: absolute;
-  top: 0;
-  left: -25%;
-  right: -25%;
-  bottom: 0;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
   margin: auto;
   display: block;
   border-radius: 50%;
@@ -975,4 +978,13 @@ header .scrolled:hover {
 }
 .el-2.active {
   width: var(--radius);
+}
+
+.policy {
+  font-size: 1.25rem;
+  font-family: var(--font-family);
+  margin-top: 1rem;
+}
+.policy a {
+  color: var(--main);
 }/*# sourceMappingURL=style.css.map */
