@@ -45,74 +45,67 @@ if (document.addEventListener) {
    document.attachEvent("onmousewheel", onWheel);
 }
 
-
 async function onWheel(e) {
    e = e || window.event;
 
    var delta = e.deltaY || e.detail || e.wheelDelta;
+   if (sections[count].clientHeight < sections[count].querySelector('.container').clientHeight) {
+      sections[count].style.overflowY = "auto";
+      if (sections[count].querySelector('.container').clientHeight - Math.ceil(sections[count].scrollTop) < window.innerHeight) {
+         if (delta > 0)
+            changeSection(1);
+      }
+      if (Math.ceil(sections[count].scrollTop) == 0 && delta < 0) {
+         changeSection(-1);
+      }
 
-   changeSection(delta);
+   } else {
+      changeSection(delta);
+   }
+
 }
-
+let direct = 0;
 $(function () {
    $('#content').swipe({
-      swipe: async function (event, direction) {
-         let direct = 0;
+      swipeStatus: async function (event, phase, direction, distance, duration) {
+         console.log('duration is' + duration)
+         $('#content').swipe('option', 'allowPageScroll', 'vertical');
+
+         direct = 0;
          if (direction == 'up') {
             direct = 1
          }
          else if (direction == 'down') {
             direct = -1;
          }
-         if (allowChange) {
-            if (direct > 0) {
-               if (count < length - 1) {
-                  count++;
-                  slider.querySelectorAll('.ii')[count].querySelectorAll('.wow').forEach(i => {
-                     console.log(i);
-                     animateStart();
-                     timerAnimate = setTimeout(() => {
-                        document.querySelector('.el').style.transition = "none"
-                        document.querySelector('.el-2').style.transition = "none"
-                        document.querySelector('.el').classList.remove('active')
-                        document.querySelector('.el-2').classList.remove('active');
-                        slider.style.transform = `translate(-${count * window.innerWidth}px)`;
-                        document.querySelector('.animation-block').style.zIndex = -1;
-                     }, 1500);
-                     forceWowReanimation(i)
+         allowChange = true;
+         if (sections[count].clientHeight < sections[count].querySelector('.container').clientHeight) {
+            sections[count].style.overflowY = "auto";
 
-                  })
-               }
-            }
-            else {
-               if (count > 0) {
-                  count--;
-                  slider.querySelectorAll('.ii')[count].querySelectorAll('.wow').forEach(i => {
-                     console.log(i);
-                     animateStart();
-                     timerAnimate = setTimeout(() => {
-                        document.querySelector('.el').style.transition = "none"
-                        document.querySelector('.el-2').style.transition = "none"
-                        document.querySelector('.el').classList.remove('active')
-                        document.querySelector('.el-2').classList.remove('active');
-                        slider.style.transform = `translate(-${count * window.innerWidth}px)`;
-                        document.querySelector('.animation-block').style.zIndex = -1;
-                     }, 1500);
-                     forceWowReanimation(i)
-
-                  })
-               }
-
-            }
 
             allowChange = false;
-         } else {
-            clearTimeout(t)
-            t = setTimeout(() => {
+            console.log(sections[count].querySelector('.container').clientHeight - Math.ceil(sections[count].scrollTop))
+            if (sections[count].querySelector('.container').clientHeight - Math.ceil(sections[count].scrollTop) < window.innerHeight) {
+
+               if (direct > 0 && phase == "end") {
+                  allowChange = true;
+                  changeSection(1);
+               }
+
+            }
+            else if (Math.ceil(sections[count].scrollTop) == 0 && direct < 0 && phase == "end") {
                allowChange = true;
-            }, 300);
+               changeSection(-1);
+            }
+
+         } else {
+            allowChange = true;
+            if (phase == "end")
+               changeSection(direct);
          }
+
       },
+
 
    });
 });
@@ -158,6 +151,9 @@ let t;
 let allowChange = false;
 let timerWOW;
 async function changeSection(direct) {
+
+
+
    if (allowChange) {
       if (direct > 0) {
          if (count < length - 1) {

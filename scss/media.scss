@@ -69,6 +69,7 @@
       &.active {
          top: 0;
          z-index: 40;
+         gap: 1.5rem;
       }
    }
    .header__menu ul {
@@ -82,7 +83,7 @@
 }
 @media (max-height: 900px) {
    .services ul > li {
-      font-size: 1rem;
+      font-size: 1.5rem;
       line-height: 120%;
    }
    .services {
@@ -112,6 +113,11 @@
 }
 
 @media (max-width: 550px) {
+   #offer {
+      form {
+         width: 100%;
+      }
+   }
    .policy {
       font-size: 1rem;
       font-family: var(--font-family);
@@ -199,7 +205,10 @@
       font-size: 0.75rem;
    }
    .services ul > li {
-      font-size: 0.8rem;
+      font-size: 1rem;
+   }
+   #offer .btn {
+      font-size: 1rem;
    }
 }
 
